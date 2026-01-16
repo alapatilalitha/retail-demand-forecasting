@@ -16,3 +16,10 @@ data/raw/
 
 # Logs
 *.log
+
+# Processed data (too large for GitHub)
+data/processed/
+
+# Spark artifacts
+spark-warehouse/
+
