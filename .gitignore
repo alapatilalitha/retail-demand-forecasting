@@ -11,15 +11,18 @@ __pycache__/
 # macOS
 .DS_Store
 
-# Raw data (do not commit)
+# Raw data
 data/raw/
 
-# Logs
-*.log
-
-# Processed data (too large for GitHub)
+# Processed data (exclude large files)
 data/processed/
 
 # Spark artifacts
 spark-warehouse/
 
+# Model outputs
+*.parquet
+*.csv
+
+# Logs
+*.log
