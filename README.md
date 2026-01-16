@@ -10,9 +10,7 @@ The project follows real-world data engineering and ML pipeline practices with a
 - Model evaluation
 - Clean project structure
 
----
-
-## 🧠 Problem Statement
+##  Problem Statement
 Retail businesses need accurate demand forecasts to:
 - Optimize inventory
 - Reduce stock-outs and overstock
@@ -20,20 +18,15 @@ Retail businesses need accurate demand forecasts to:
 
 Using historical transaction data, this project predicts **daily demand** based on lagged and rolling time-series features.
 
----
-
 ## 🛠 Tech Stack
 - **Python**
 - **Apache Spark (PySpark)**
 - **Spark SQL**
-- **Spark MLlib**
-- **Pandas**
-- **Scikit-learn**
+- **Spark MLlib(Modeling)**
+- **Pandas (data loading & export)**
 - **Git & GitHub**
 
----
 ## 🏗 Project Architecture
-
 1. Raw transactional retail data is ingested from Excel files using PySpark.
 2. Data cleaning and validation are applied to remove invalid records.
 3. Daily-level demand is aggregated using Spark SQL.
@@ -55,8 +48,8 @@ retail-demand-forecasting/
 │ ├── 04_advanced_model.ipynb
 │ └── 05_model_evaluation_and_analysis.ipynb
 │
-├── sql/ # Spark SQL queries (optional)
-├── src/ # Reusable helper scripts (future)
+├── sql/
+├── src/
 ├── .gitignore
 └── README.md
 
@@ -84,8 +77,6 @@ retail-demand-forecasting/
 5. **Model Evaluation**
    - Compare models using RMSE and MAE
    - Visual analysis and conclusions
-
----
 
 ## 📂 Notebook Execution Order
 
@@ -126,15 +117,45 @@ Linear Regression outperformed RandomForest due to:
 - Limited dataset size
 - Reduced overfitting
 
----
-
-### 1️⃣ Create virtual environment
+## ▶️ How to Run the Project
+1. Clone the repository
 ```bash
+git clone https://github.com/your-username/retail-demand-forecasting.git
+cd retail-demand-forecasting
+
+2. Create and activate a virtual environment
 python -m venv venv
 source venv/bin/activate
 
-## 🧠 Key Learnings
+3. Install dependencies
+pip install -r requirements.txt
 
+4. Run the notebooks in the following order to reproduce the full pipeline:
+1. **data_ingestion.ipynb**
+   - Loads raw retail transaction data (Excel format)
+   - Performs data cleaning and validation
+   - Saves cleaned data as Parquet files
+2. **02_feature_engineering.ipynb**
+   - Aggregates daily-level demand using Spark SQL
+   - Creates time-series features:
+     - Lag features (lag_1, lag_7)
+     - Rolling window averages (7-day, 14-day)
+   - Outputs modeling-ready feature dataset
+3. **03_baseline_model.ipynb**
+   - Splits data into train and test sets
+   - Trains a baseline Linear Regression model using Spark ML
+   - Evaluates performance using RMSE and MAE
+4. **04_advanced_model.ipynb**
+   - Trains a RandomForest regression model
+   - Captures non-linear demand patterns
+   - Generates and saves predictions for evaluation
+5. **05_model_evaluation_and_analysis.ipynb**
+   - Compares baseline and advanced models
+   - Analyzes RMSE and MAE metrics
+   - Visualizes residuals and model performance
+   - Draws final conclusions
+
+##  Key Learnings
 - Feature engineering has a larger impact than model complexity.
 - Spark SQL is effective for large-scale aggregations.
 - Simple models can outperform complex models on structured time-series data.
