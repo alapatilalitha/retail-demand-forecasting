@@ -1,0 +1,3 @@
+Model,RMSE,MAE
+Spark Linear Regression,13222.98,7630.99
+RandomForest Regressor,13432.02,7540.04

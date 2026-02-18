@@ -1,0 +1,74 @@
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# -------------------------
+# Virtual Environment
+# -------------------------
+venv/
+.env/
+.envrc
+
+# -------------------------
+# Jupyter Notebooks
+# -------------------------
+.ipynb_checkpoints/
+
+# -------------------------
+# macOS
+# -------------------------
+.DS_Store
+
+# -------------------------
+# VS Code
+# -------------------------
+.vscode/
+
+# -------------------------
+# MLflow
+# -------------------------
+mlruns/
+
+# -------------------------
+# Spark temporary files
+# -------------------------
+spark-warehouse/
+metastore_db/
+derby.log
+
+# -------------------------
+# Data (Optional - choose based on repo strategy)
+# -------------------------
+
+# Ignore raw and intermediate data
+data/raw/
+data/bronze/
+data/silver/
+
+# Keep gold features if needed (optional)
+# data/gold/
+
+# -------------------------
+# Large model files
+# -------------------------
+models/
+
+# -------------------------
+# Temporary logs
+# -------------------------
+*.log
+
+# -------------------------
+# Parquet output folders
+# -------------------------
+reports/lr_predictions/
+reports/rf_predictions/
